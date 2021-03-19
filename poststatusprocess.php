@@ -22,7 +22,7 @@ and generate appropriate HTML output according to the user’s request.
         <a href="searchstatusform.html">Search Status</a>
         <a href="about.html">About</a>
     </div>
-    <!--Header-->
+     <!--process post status form-->
     <div class="content">
         <?php
         

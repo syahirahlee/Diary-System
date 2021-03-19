@@ -1,0 +1,45 @@
+<!--This search status page contains a form that allows a user to enter a string status search-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- External CSS file for the website design-->
+	<link rel="stylesheet" type="text/css" href="style.css"> 
+    <title>Search Status Page</title>
+</head>
+<body>
+    <!--Header-->
+    <div class= "header"> 
+        <h1>Status Posting System</h1>
+    </div>
+    <!--Navigation bar-->
+    <div class= "navbar">
+        <a href="index.html">Home</a>
+        <a href="poststatusform.php">Post Status</a>
+        <a class="active" href="searchstatusform.html">Search Status</a>
+        <a href="about.html">About</a>
+    </div>
+    <!--form that accepts user search input and retrieve data from database-->
+    <div class="content">
+        <form action="searchstatusprocess.php" method="GET">
+            <!--display important messsage for search-->
+            <div class="inputdata">
+                <br><label for="search">Status: </label>
+                <input type="text" name="Search">
+            </div>
+            <div class="hide">Enter text of status description or keyword.</div>
+            <br>
+            <!--button to retrieve the matched search string from database-->
+            <input type="submit" value="View Status">
+        </form>
+    </div>
+
+    <!--Footer-->
+    <div class="footer">
+        <br><br>
+        <a href="index.html">Return to Home Page</a> 
+    </div>
+
+</body>
+</html>

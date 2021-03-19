@@ -1,4 +1,4 @@
-<!--This is the post status page which contains a form that allows a user to submit and save their status post to the database-->
+<!--This post status page which contains a form that allows a user to submit and save their status post to the database-->
 <!DOCTYPE html>
 <html>
 <head>

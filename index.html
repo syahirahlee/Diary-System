@@ -1,20 +1,45 @@
-<!--This is the home page of the diary system that displays information about the author and declaration statement.
-    The links to other pages are also displayed respectively.
--->
+<!--This is the home page of the diary system for a social networking site
+contains details of author, statement and links to other pages accordingly-->
 <!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- External CSS file for the website design-->
+	<link rel="stylesheet" type="text/css" href="style.css"> 
     <title>Home Page</title>
-
 </head>
 <body>
-    <p>Name :  Syahirah Shafiq Lee <br>
-       Student ID : 19065338 <br>
-       Email: ybn3442@autuni.ac.nz
-    </p>
-    <p>
-        I declare that this assignment is my individual work. I have not worked collaboratively nor have I copied from any other student’s work or from any other source.
-    </p>
+    <!--Header-->
+    <div class= "header"> 
+        <h1>Status Posting System</h1>
+    </div>
+    <!--Navigation bar-->
+    <div class= "navbar">
+        <a class="active" href="index.html">Home</a>
+        <a href="poststatusform.php">Post Status</a>
+        <a href="searchstatusform.html">Search Status</a>
+        <a href="about.html">About</a>
+    </div>
+    <!--Content of web page -->
+    <div class="content">
+        <br><p>Name :  Syahirah Shafiq Lee <br><br>
+            Student ID : 19065338 <br><br>
+            Email: ybn3442@autuni.ac.nz
+        </p>
+        <br>
+        <p>
+            I declare that this assignment is my individual work. I have not worked collaboratively 
+            nor have I copied from any other student’s work or from any other source.
+        </p>
+        <br>
+    </div>
+    <!--Footer-->
+    <div class="footer">
+        <a href="poststatusform.php">Post a new status</a> | 
+        <a href="searchstatusform.html">Search status</a> |  
+        <a href="about.html">About this assignment</a>
+    </div>
 
 </body>
 

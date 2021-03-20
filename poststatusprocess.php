@@ -16,12 +16,12 @@ and generate appropriate HTML output according to the user’s request.
         <h1>Status Posting System</h1>
     </div>
     <!--Navigation bar-->
-    <div class= "navbar">
-        <a href="index.html">Home</a>
-        <a class="active" href="poststatusform.php">Post Status</a>
-        <a href="searchstatusform.html">Search Status</a>
-        <a href="about.html">About</a>
-    </div>
+    <ul class= "navbar">
+            <li><a href="index.html">Home</a></li>   
+            <li><a class="active" href="poststatusform.php">Post Status</a></li>
+            <li><a href="searchstatusform.html">Search Status</a></li>
+            <li><a href="about.html">About</a></li>
+    </ul>
     <!--process post status form-->
     <div class="content">
         <?php

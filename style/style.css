@@ -17,6 +17,18 @@ set background color of navigation bar */
 .navbar {
   background-color: black;
   overflow: hidden;
+  /*added for center navbar*/
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/*added for center navbar*/
+.navbar li {
+  display: inline-block;
+  font-size: 10px;
+  padding: 10px;
 }
 
 /*set links style inside the navigation bar */

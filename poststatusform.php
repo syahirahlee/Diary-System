@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- External CSS file for the website design-->
-	<link rel="stylesheet" type="text/css" href="style.css"> 
+	<link rel="stylesheet" type="text/css" href="style/style.css"> 
     <title>Post Status Page</title>
 </head>
 <body>

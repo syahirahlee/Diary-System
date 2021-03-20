@@ -7,7 +7,7 @@ and generate appropriate HTML output according to the user’s request.
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- External CSS file for the website design-->
-	<link rel="stylesheet" type="text/css" href="style.css"> 
+	<link rel="stylesheet" type="text/css" href="style/style.css"> 
     <title>Process Post Status Page</title>
 </head>
 <body>
@@ -22,7 +22,7 @@ and generate appropriate HTML output according to the user’s request.
         <a href="searchstatusform.html">Search Status</a>
         <a href="about.html">About</a>
     </div>
-     <!--process post status form-->
+    <!--process post status form-->
     <div class="content">
         <?php
         

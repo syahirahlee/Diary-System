@@ -7,7 +7,7 @@ appropriate HTML output according to the user’s search request. -->
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- External CSS file for the website design-->
-	<link rel="stylesheet" type="text/css" href="style.css"> 
+	<link rel="stylesheet" type="text/css" href="style/style.css"> 
     <title>Search Status Result Page</title>
 </head>
 <body>

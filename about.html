@@ -1,0 +1,102 @@
+<!--This 'About page' is a report page based on the development of the assignment (diary system for a social networking site)
+including features created, issues faced during development, suggested improvements, references and reflection.
+based on FAQ concept page-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- External CSS file for the website design-->
+	<link rel="stylesheet" type="text/css" href="style/style.css"> 
+    <title>About Page</title>
+</head>
+<body>
+  <!--Header-->
+  <div class= "header"> 
+    <h1>Status Posting System</h1>
+  </div>
+  <!--Navigation bar-->
+    <div class= "navbar">
+        <a href="index.html">Home</a>
+        <a href="poststatusform.php">Post Status</a>
+        <a href="searchstatusform.html">Search Status</a>
+        <a class="active" href="about.html">About</a>
+    </div>
+    <br><br>
+
+    <!--use accordion(collapsible content) to display the listed questions with answers under them respectively-->
+    <button class="question">1. What special features have you done, or attempted, in creating the site that we should
+      know about?</button>
+    <div class="panel">
+      <!--create description list to answer the question-->
+      <p><dl>
+				<dt><strong>navigation bar</strong></dt>
+        <dd>to navigate through the links easier</dd>
+				<dt><strong>accordion</strong></dt>
+				<dd>appropriate message when hovered</dd>
+			</dl></p>  
+    </div>
+
+    <button class="question">2. Which parts did you have trouble with?</button>
+    <div class="panel">
+      <p>
+        -nav bar active and button accordion conflict. showed the minus sign on nav bar. took a while to realise 
+        -change name on accordion button 
+      </p>
+      <p>
+        -db?
+      </p>
+    </div>
+
+    <button class="question">3. What would you like to do better next time?</button>
+    <div class="panel">
+      <p>
+        -design layout, explore bootstrp
+      </p>
+    </div>
+
+    <button class="question">4. What references/sources you have used to help you learn how to create your website?</button>
+    <div class="panel">
+      <!--create unordered list to answer the question-->
+      <p><ul>
+				<li>w3 link here.</li>
+				<li>w3 link here.</li>
+				<li>w3 link here.</li>
+			</ul></p>  
+    </div>
+
+    <button class="question">5. What you have learnt along the way?</button>
+    <div class="panel">
+      <p>
+        web design..
+      </p>
+    </div>
+
+   <!--button (accordion) actions-->
+    <script>
+      let questions = document.getElementsByClassName("question");
+      for (let i=0; i < questions.length; i++) {
+        questions[i].addEventListener("click", ()=> {
+           /* Toggle to add and remove "active" class: highlight the button that controls the panel */
+          questions[i].classList.toggle("button-active");
+           /* Toggle to hide and show active panel*/
+          let answer =  questions[i].nextElementSibling;
+          if (answer.style.display === "block") {
+            answer.style.display = "none";
+          } else {
+            answer.style.display = "block";
+          }
+        });
+      }
+    </script>
+    <br><br>
+    
+    <!--Footer-->
+    <div class="footer">
+        <a href="index.html">Return to Homepage</a>
+    </div>
+
+</body>
+
+</html>

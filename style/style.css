@@ -12,7 +12,6 @@
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-size: 20px;
 }
-
 /* NAVIGATION BAR
 set background color of navigation bar */
 .navbar {
@@ -69,4 +68,46 @@ set background color of navigation bar */
   display: block;
   color: red;
   font-size: small;
+}
+
+/*set accordion(collapsible content)style in about page*/
+.question {
+  background-color: #f4cabc;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+/*set background colour change when user clicks on the button or hover the mouse over it*/
+.button-active,
+.question:hover {
+  background-color: #e9967a;
+}
+
+/*set the "plus" sign (+) as default of the button*/
+.question:after {
+  content: "\002B";
+  color: #777;
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
+}
+/*set the for "minus" sign (-) when button is clicked on and content is displayed*/
+.button-active:after {
+  content: "\2212";
+}
+
+/*set the accordion panel style. Note: hidden by default */
+.panel {
+  padding: 1em;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+  line-height: 1.5;
 }

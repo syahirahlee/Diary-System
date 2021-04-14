@@ -38,16 +38,12 @@ and generate appropriate HTML output according to the user’s request.
                 or die("<p>The connection to database server is unavailable.<p>" 
                 . "<p>Error code " . mysqli_connect_errno()  
                 . ": " . mysqli_connect_error() . "</p>");
-            //display message for successful connection
-            //echo "<p>The connection to database server is successful.</p>";
 
             //use MySQL database, display error message and end script if unsuccessful
             @mysqli_select_db($db_connect, $db_name)
 				or die("<p>The database is not available!</p>"
                 . "<p>Error code " . mysqli_errno($db_connect)
                 . ": " . mysqli_error($db_connect) . "</p>");
-            //display message for successful selection of database
-            //echo "<p>The selected database is successfully opened.</p>";
 
             //check if table database exist, display error message and end script if otherwise
             $db_table = "status";		

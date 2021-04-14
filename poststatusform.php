@@ -28,13 +28,14 @@
         <!--status code-->
         <div class="inputdata">
             <br><label for="statuscode">Status Code (required):</label> 
-            <input type="text" name="statuscode" size="5"/>  
+            <input type="text" name="statuscode" size="10" maxlength="5"/>  <!--max character input is set to 5-->
         </div>
         <div class="hide">Status code (5 characters long) must start with an uppercase letter “S” followed by 4 number</div><br>
         <!--status description-->
         <div class="inputdata">
-            <label for="status">Status (required): </label>  
-            <input type="text" name="status"/> </div>
+            <label for="status">Status (required): </label> <br>
+            <textarea rows = "3" cols = "50" name = "status"> </textarea> 
+            </div>
         <div class="hide">Status can only contain alphanumeric characters including spaces, comma, period (full stop), 
             exclamation point and question mark. Other characters/symbols are not allowed.</div><br>
         <!--radio button options -->
@@ -48,15 +49,15 @@
         <br><br>
         <!--fetch current date-->
         <label for="date">Date: </label>
-        <input type="date" id="date" name="date" value="<?php echo date("d/m/Y") ?>">
+        <input type="date" id="date" name="Date" value="<?php echo date("Y-m-d");?>" required> <!--mysql only take date format as Y-m-d, html side displays d/m/y format-->
         <br><br>
         <!--permission type-->
-        <label for="permission">Permission: </label>
-        <input type="checkbox" id="like" name="permission" value="Allow Like">
+        <label for="permission[]">Permission: </label>
+        <input type="checkbox" id="like" name="permission[]" value="Allow Like">
         <label for="like">Allow Like</label>
-        <input type="checkbox" id="comment" name="permission" value="Allow Comment">
+        <input type="checkbox" id="comment" name="permission[]" value="Allow Comment">
         <label for="comment">Allow Comment</label>
-        <input type="checkbox" id="share" name="permission" value="Allow Share">
+        <input type="checkbox" id="share" name="permission[]" value="Allow Share">
         <label for="share">Allow Share</label>
         <br><br>
         <!--button to submit all data entered by user into database table-->
@@ -65,7 +66,6 @@
         <input type="reset" value="Reset">
     </form>
     </div>
-
     <!--Footer-->
     <div class="footer">
         <br><br>

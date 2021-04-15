@@ -31,28 +31,31 @@ based on FAQ concept page-->
     <div class="panel">
       <!--create description list to answer the question-->
       <p><dl>
-				<dt><strong>navigation bar</strong></dt>
-        <dd>to navigate through the links easier</dd>
-				<dt><strong>accordion</strong></dt>
-				<dd>appropriate message when hovered</dd>
+				<dt><strong>Navigation bar</strong></dt>
+        <dd>The navigation bar which consists of the 4 main pages was created to make it easier to browse through the website rather than just using the links.</dd>
+				<dt><strong>Accordion tabs</strong></dt>
+				<dd>The accordion tabs are created to contain the answers for each of the questions listed for higher readability and a neater appearance for user.</dd>
+        <dt><strong>Display appropriate messages for mandatory text fields when hover</strong></dt>
+				<dd>A brief message is displayed underneath mandatory textfields according to their requirements when hover or clicked on such as 
+          status code and status description at post status page and search status page, to ensure correct input from user. This also saves a lot of time 
+          and effort as user can avoid submitting wrong input and has to refill the whole form again.</dd>
 			</dl></p>  
     </div>
 
     <button class="question">2. Which parts did you have trouble with?</button>
     <div class="panel">
       <p>
-        -nav bar active and button accordion conflict. showed the minus sign on nav bar. took a while to realise 
-        -change name on accordion button 
-      </p>
-      <p>
-        -db?
+        I had issues with storing data into database, particularly date field as mysql only stores date in the Year-month-day format, whereas the required input is
+        in date/month/year format. After conducting some research, the issue was resolved by inserting the date following the mysql format, while displaying html side format
+         and only convert the date to d/m/Y format when retrieving data to display result.
       </p>
     </div>
 
     <button class="question">3. What would you like to do better next time?</button>
     <div class="panel">
       <p>
-        -design layout, explore bootstrp
+        I would like to improve my website design so it will look more appealing and user-friendly. I would also like to explore in using other 
+        front end frameworks like Bootstrap for better UI design and styling or Javascript for interactive features.
       </p>
     </div>
 
@@ -60,17 +63,18 @@ based on FAQ concept page-->
     <div class="panel">
       <!--create unordered list to answer the question-->
       <p><ul>
-				<li>w3 link here.</li>
-				<li>w3 link here.</li>
-				<li>w3 link here.</li>
+				<li>The lecture slides and labs such as for data validation and database connectivity.</li>
+				<li><a href="https://www.w3schools.com/css/css_navbar.asp">W3Schools for features reference</a></li>
+				<li><a href="https://stackoverflow.com/questions/21361333/fetch-current-date-record-of-dd-mm-yyyy-format-in-php-mysql/21361375">Stackoverflow for date format issue</a></li>
 			</ul></p>  
     </div>
 
     <button class="question">5. What you have learnt along the way?</button>
     <div class="panel">
-      <p>
-        web design..
-      </p>
+      <p>I learnt to code with HTML, CSS and PHP for website design and development, as well as database implementation using MySQL 
+        for data storing and data retrieval.</p>
+      <p>I also discovered that there are many CSS features (accordion, navigation bar and others) that can be used for the website styling. </p> 
+      <p>Moreover, I learnt to be persistent in troubleshooting issues and finding solutions through the right resources.</p>
     </div>
 
    <!--button (accordion) actions-->

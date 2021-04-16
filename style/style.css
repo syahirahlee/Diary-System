@@ -1,4 +1,4 @@
-/*This css sheet defines all the styles and layout of the status post website */
+/*This css sheet defines the styles and layout of the website content*/
 
 /* set header style */
 .header {
@@ -72,17 +72,8 @@ set background color of navigation bar */
   text-align: right;
 }
 
-/*when user hovers the textfield in post status form*/
-.hide {
-  display: none;
-}
-.inputdata:hover + .hide {
-  display: block;
-  color: red;
-  font-size: small;
-}
-
-/*set accordion(collapsible content)style in about page*/
+/*ABOUT PAGE 
+ACCORDION (collapsible content)style */
 .question {
   background-color: #f4cabc;
   color: #444;
@@ -117,6 +108,7 @@ set background color of navigation bar */
 
 /*set the accordion panel style. Note: hidden by default */
 .panel {
+  font-family: Verdana, Arial, Helvetica, sans-serif;
   padding: 1em;
   display: none;
   background-color: white;

@@ -8,6 +8,7 @@ appropriate HTML output according to the user’s search request. -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- External CSS file for the website design-->
 	<link rel="stylesheet" type="text/css" href="style/style.css"> 
+    <link rel="stylesheet" type="text/css" href="style/form_style.css"> 
     <title>Search Status Result Page</title>
 </head>
 <body>
@@ -63,7 +64,7 @@ appropriate HTML output according to the user’s search request. -->
                     . "  <p>Error code " . mysqli_errno($db_connect)
                     . ": " . mysqli_error($db_connect) . "</p>");
 
-                    //when matches found is 1 or more, display all details of requested status information, includes Search Status page link
+                    //when matches found is 1 or more, display all details of requested status information in a table
                     if(mysqli_num_rows($result_search) > 0) 
                     {
                         echo "<p><h3><strong>Status Information</strong></h3></p>";
@@ -79,7 +80,6 @@ appropriate HTML output according to the user’s search request. -->
                         while ($rows) //loop for results
                         {
                             //retrieve and display each field/column in table
-
                             echo "<tr><td>{$rows[0]}</td>";  //status code
                             echo "<td>{$rows[1]}</td>";     //status
                             echo "<td>{$rows[2]}</td>";     //share
@@ -92,7 +92,7 @@ appropriate HTML output according to the user’s search request. -->
                     }
                     else //when results found 0 matches in database for the searched keyword
                     {
-                        echo "<p>Status does not exists! Please enter the keyword again.</p>";
+                        echo "<p>Status does not exist or invalid! Please enter the keyword again.</p>";
                     }
                 }
                 else //display error message when search string is empty
@@ -112,9 +112,9 @@ appropriate HTML output according to the user’s search request. -->
     </div>
     <!--Footer-->
     <div class="footer">
-        <br><br>
-        <a href="searchstatusform.html">Search for another status</a> |  
-        <a href="index.html">Return to Home Page</a> 
+        <br><br> 
+        <a href="index.html"><button type="button">Return to Home Page</button></a>
+        <a href="searchstatusform.html"><button type="button">Search for another status</button></a>
     </div>
 
 </body>

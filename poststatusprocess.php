@@ -8,6 +8,7 @@ and generate appropriate HTML output according to the user’s request.
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- External CSS file for the website design-->
 	<link rel="stylesheet" type="text/css" href="style/style.css"> 
+    <link rel="stylesheet" type="text/css" href="style/form_style.css"> 
     <title>Process Post Status Page</title>
 </head>
 <body>
@@ -87,7 +88,11 @@ and generate appropriate HTML output according to the user’s request.
                             if ($numRows!=0 )
                             {
                                 //display error message - include home page and post status page links and end script
-                                die	("<p>The status code entered exists in the database! Please try again</p>");
+                                die	("<p>The status code entered exists in the database! Please try again</p>
+                                <div class=\"footer\"> <br><br>
+                                <a href=\"index.html\"><button type=\"button\">Return to Home Page</button></a>
+                                <a href=\"poststatusform.php\"><button type=\"button\">Post a New Status</button></a>
+                                </div>");
                             }
                         
                             //if more than 1 permission type is checked, save all of them to the same single "permission" column in status table
@@ -111,7 +116,6 @@ and generate appropriate HTML output according to the user’s request.
 
                             //display confirmation message
                             echo "<p>Status post data has been successfully saved!<p>";
-
                         }
                         else //invalid date input
                         {
@@ -146,7 +150,6 @@ and generate appropriate HTML output according to the user’s request.
                 $d = DateTime::createFromFormat($format, $date);
                 return $d && $d->format($format) === $date;
             }
-
             //close database connection
             mysqli_close($db_connect);
         ?>
@@ -154,8 +157,8 @@ and generate appropriate HTML output according to the user’s request.
     <!--Footer-->
     <div class="footer">
         <br><br>
-        <a href="index.html">Return to Home Page</a>  |
-        <a href="poststatusform.php">Post a new status</a> 
+        <a href="index.html"><button type="button">Return to Home Page</button></a>
+        <a href="poststatusform.php"><button type="button">Post a New Status</button></a>
     </div>
 </body>
 </html>

@@ -25,12 +25,6 @@ and generate appropriate HTML output according to the user’s request.
     <!--process post status form-->
     <div class="content">
         <?php
-            /*declare database variables
-            $db_host = " ";
-			$db_user = " ";
-			$db_password = " ";
-			$db_name = " ";*/
-
             //get sql login info 
             require_once('../../conf/sqlinfo.inc.php');
             //create MySQL database connection, display error message and end script if unsuccessful

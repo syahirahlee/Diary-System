@@ -25,12 +25,6 @@ appropriate HTML output according to the user’s search request. -->
      <!--process search status form-->
     <div class="content">
         <?php
-             /*declare database variables
-            $db_host = " ";
-			$db_user = " ";
-			$db_password = " ";
-			$db_name = " ";*/
-
             //get sql login info 
             require_once('../../conf/sqlinfo.inc.php');
             //create MySQL database connection, display error message and end script if unsuccessful
@@ -57,7 +51,7 @@ appropriate HTML output according to the user’s search request. -->
             if($_SERVER['REQUEST_METHOD'] == 'GET')
             {
                 //status search string needs to have value (status description) 
-                if (isset($_GET['Search']))
+                if (!empty($_GET['Search']))
                 {
                     //retrieve keyword entered from form
                     $searchstring =$_GET['Search'];
@@ -98,12 +92,12 @@ appropriate HTML output according to the user’s search request. -->
                     }
                     else //when results found 0 matches in database for the searched keyword
                     {
-                        echo "<p>There is no such status exists! Please try again.</p>";
+                        echo "<p>Status does not exists! Please enter the keyword again.</p>";
                     }
                 }
-                else //display error message when search string is empty or incorrect format, include Search Status page link
+                else //display error message when search string is empty
                 {
-                    echo "<p>The search keyword is invalid! Please try again.</p>";
+                    echo "<p>The search field cannot be empty! Please try again.</p>";
                 }
         
             }

@@ -1,4 +1,5 @@
-<!--This search status page contains a form that allows a user to enter a string status search-->
+<!--This search status page contains a form that allows a user to enter a string status search and 
+    retrieve the matched string from the database-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- External CSS file for the website design-->
 	<link rel="stylesheet" type="text/css" href="style/style.css"> 
+    <link rel="stylesheet" type="text/css" href="style/form_style.css"> 
     <title>Search Status Page</title>
 </head>
 <body>
@@ -21,25 +23,26 @@
         <li><a href="about.html">About</a></li>
     </ul>
     <!--form that accepts user search input and retrieve data from database-->
-    <div class="content">
+    <div class="container2">
         <form action="searchstatusprocess.php" method="GET">
-            <!--display important messsage for search-->
-            <div class="inputdata">
-                <br><label for="search">Status: </label>
-                <input type="text" name="Search">
+            <div class="row">
+                <div class="inputdata">
+                    <label for="search">Status: </label>
+                </div>
+                <div class="field">
+                    <input type="text" name="Search" size=40 placeholder="Enter the status description or keyword."> 
+                    <!--appropriate message displayed to remind that only status description is accepted-->
+                </div>
             </div>
-            <div class="hide">Enter text of status description or keyword.</div>
-            <br>
-            <!--button to retrieve the matched search string from database-->
-            <input type="submit" value="View Status">
+            <br><br>
+                <!--button to retrieve the matched search string from database-->
+                <input type="submit" value="View Status">
         </form>
     </div>
-
     <!--Footer-->
     <div class="footer">
         <br><br>
-        <a href="index.html">Return to Home Page</a> 
+        <a href="index.html"><button type="button">Return to Home Page</button></a> 
     </div>
-
 </body>
 </html>

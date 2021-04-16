@@ -9,6 +9,7 @@ based on FAQ concept page-->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- External CSS file for the website design-->
 	<link rel="stylesheet" type="text/css" href="style/style.css"> 
+  <link rel="stylesheet" type="text/css" href="style/form_style.css"> 
     <title>About Page</title>
 </head>
 <body>
@@ -24,7 +25,6 @@ based on FAQ concept page-->
     <li><a class="active" href="about.html">About</a></li>
   </ul>
     <br><br>
-
     <!--use accordion(collapsible content) to display the listed questions with answers under them respectively-->
     <button class="question">1. What special features have you done, or attempted, in creating the site that we should
       know about?</button>
@@ -35,10 +35,8 @@ based on FAQ concept page-->
         <dd>The navigation bar which consists of the 4 main pages was created to make it easier to browse through the website rather than just using the links.</dd>
 				<dt><strong>Accordion tabs</strong></dt>
 				<dd>The accordion tabs are created to contain the answers for each of the questions listed for higher readability and a neater appearance for user.</dd>
-        <dt><strong>Display appropriate messages for mandatory text fields when hover</strong></dt>
-				<dd>A brief message is displayed underneath mandatory textfields according to their requirements when hover or clicked on such as 
-          status code and status description at post status page and search status page, to ensure correct input from user. This also saves a lot of time 
-          and effort as user can avoid submitting wrong input and has to refill the whole form again.</dd>
+        <dt><strong>Responsive forms</strong></dt>
+				<dd>The post status form and search status form are designed and developed to be responsive so they can accomodate to the browser window size.</dd>
 			</dl></p>  
     </div>
 
@@ -49,8 +47,8 @@ based on FAQ concept page-->
         in date/month/year format. After conducting some research, the issue was resolved by inserting the date following the mysql format, while displaying html side format
          and only convert the date to d/m/Y format when retrieving data to display result.
       </p>
+      <p>Besides that, figuring out the right code styling to ensure form elements are aligned neatly and not disrupt each other when making them responsive.</p>
     </div>
-
     <button class="question">3. What would you like to do better next time?</button>
     <div class="panel">
       <p>
@@ -62,18 +60,21 @@ based on FAQ concept page-->
     <button class="question">4. What references/sources you have used to help you learn how to create your website?</button>
     <div class="panel">
       <!--create unordered list to answer the question-->
-      <p><ul>
-				<li>The lecture slides and labs such as for data validation and database connectivity.</li>
-				<li><a href="https://www.w3schools.com/css/css_navbar.asp">W3Schools for features reference</a></li>
-				<li><a href="https://stackoverflow.com/questions/21361333/fetch-current-date-record-of-dd-mm-yyyy-format-in-php-mysql/21361375">Stackoverflow for date format issue</a></li>
-			</ul></p>  
+      <p><dl>
+				<dt>The lecture slides and labs such as for data validation and database connectivity.</dt>
+        <dt>W3Schools for features references:</dt>
+				<dd><a href="https://www.w3schools.com/html/default.asp">- HTML</a></dd>
+        <dd><a href="https://www.w3schools.com/css/default.asp">- CSS</a></dd>
+				<dt><a href="https://stackoverflow.com/questions/21361333/fetch-current-date-record-of-dd-mm-yyyy-format-in-php-mysql/21361375">Stackoverflow for date format issue</a></dt>
+			</dl></p>  
     </div>
 
     <button class="question">5. What you have learnt along the way?</button>
     <div class="panel">
       <p>I learnt to code with HTML, CSS and PHP for website design and development, as well as database implementation using MySQL 
         for data storing and data retrieval.</p>
-      <p>I also discovered that there are many CSS features (accordion, navigation bar and others) that can be used for the website styling. </p> 
+      <p>I also discovered that there are many CSS features (accordion, navigation bar and others) that can be used for a website styling,
+        and how each element needs to be meticulous when coding their styling for consistent layout.</p> 
       <p>Moreover, I learnt to be persistent in troubleshooting issues and finding solutions through the right resources.</p>
     </div>
 
@@ -95,12 +96,9 @@ based on FAQ concept page-->
       }
     </script>
     <br><br>
-    
     <!--Footer-->
     <div class="footer">
-        <a href="index.html">Return to Homepage</a>
+      <a href="index.html"><button type="button">Return to Home Page</button></a>
     </div>
-
 </body>
-
 </html>

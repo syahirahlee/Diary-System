@@ -39,7 +39,7 @@ This page process the user request to retrieve status record from database by es
 This page consists of a report that describes what features have been developed, any issues faced, improvements and reflections. <br/>
 
 <p align="center">
-  <img width="500" height="200" src="https://user-images.githubusercontent.com/62451840/115052075-9fe91a80-9f31-11eb-81e0-fecfa68f06c2.png">
+  <img width="500" height="200" src="https://user-images.githubusercontent.com/62451840/115101666-29343780-9f9a-11eb-88e0-f090f106a5c2.png">
 </p>
 
 

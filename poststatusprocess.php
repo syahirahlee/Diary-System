@@ -40,13 +40,22 @@ and generate appropriate HTML output according to the user’s request.
                 . "<p>Error code " . mysqli_errno($db_connect)
                 . ": " . mysqli_error($db_connect) . "</p>");
 
-            //check if table database exist, display error message and end script if otherwise
+            //check if database "status" table exists, and create the table if not
             $db_table = "status";		
-			$sql_tbl = "SHOW TABLES LIKE '$db_table';";		
-			$query_tblresult = @mysqli_query($db_connect, $sql_tbl)
-				or die("<p>The table does not exist.</p>"
-				. "  <p>Error code " . mysqli_errno($db_connect)
-				. ": " . mysqli_error($db_connect) . "</p>");
+			$sql_tbl = "SELECT * FROM $db_table";		
+			$query_tblresult = @mysqli_query($db_connect, $sql_tbl);
+            if (!$query_tblresult)
+            {
+                $query_tbl = mysqli_query($db_connect,
+                "CREATE TABLE status (
+                statusCode	varchar(5) NOT NULL PRIMARY KEY,
+                statusDesc	varchar(200) NOT NULL,
+                share	varchar(10),
+                datePosted	date NOT NULL,
+                permissionType	varchar(50) 
+                );" 
+              );
+            }
 
             //check if the correct request method in form is used to access the page 
             if ($_SERVER["REQUEST_METHOD"] == "POST") 

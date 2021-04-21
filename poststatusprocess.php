@@ -42,7 +42,7 @@ and generate appropriate HTML output according to the user’s request.
 
             //check if database "status" table exists, and create the table if not
             $db_table = "status";		
-			$sql_tbl = "SELECT * FROM $db_table";		
+			$sql_tbl = "SELECT statusCode FROM $db_table";		
 			$query_tblresult = @mysqli_query($db_connect, $sql_tbl);
             if (!$query_tblresult)
             {
@@ -60,94 +60,95 @@ and generate appropriate HTML output according to the user’s request.
             //check if the correct request method in form is used to access the page 
             if ($_SERVER["REQUEST_METHOD"] == "POST") 
             {
-            //check status code and status fields are not empty
-            if (!empty($_POST['statuscode']) && !empty($_POST['status'])) 
-            {
-                //retrieve data from the post status form
-                $code = $_POST["statuscode"];
-                $desc = $_POST["status"];
-                $share = $_POST["share"];
-                $date = date("d/m/Y", strtotime($_POST["Date"])); //date format displayed in HTML Side
-                $date_db = $_POST["Date"]; //date format for the sql side
-                $permission = $_POST["permission"];
-
-                //data validation using regular expressions
-                $codepattern = "/^[S]{1}[\d]{4}$/";    //regex for status code : start with “S” followed by 4 number
-                $statpattern = "/^[a-zA-Z0-9\s,.!?]+$/";   //regex for status: only contain alphanumeric characters
-
-                if (preg_match ($codepattern, $code) && preg_match ($statpattern, $desc))
+                //check status code and status fields are not empty
+                if (!empty($_POST['statuscode']) && !empty($_POST['status'])) 
                 {
-                    //validate date input
-                    if (!empty($date))
+                    //retrieve data from the post status form
+                    $code = $_POST["statuscode"];
+                    $desc = $_POST["status"];
+                    $share = $_POST["share"];
+                    $date = date("d/m/Y", strtotime($_POST["Date"])); //date format displayed in HTML Side
+                    $date_db = $_POST["Date"]; //date format for the sql side
+                    $permission = $_POST["permission"];
+
+                    //data validation using regular expressions
+                    $codepattern = "/^[S]{1}[\d]{4}$/";    //regex for status code : start with “S” followed by 4 number
+                    $statpattern = "/^[a-zA-Z0-9\s,.!?]+$/";   //regex for status: only contain alphanumeric characters
+
+                    if (preg_match ($codepattern, $code) && preg_match ($statpattern, $desc))
                     {
-                        $validDate = validateDate($date); //call validateDate function
+                        //validate date input
+                        if (!empty($date))
+                        {
+                            $validDate = validateDate($date); //call validateDate function
             
-                        if ($validDate==true)
-                        {
-                            //SQL command to check status code must be unique, ensure no duplicates in database found
-                            $sql_code = "SELECT * FROM $db_table WHERE statusCode = '$code' ";
-                            $coderesult = @mysqli_query($db_connect, $sql_code)
-                            or die("<p>Failed to execute query for status code.</p>"
-                            . "  <p>Error code " . mysqli_errno($db_connect)
-                            . ": " . mysqli_error($db_connect) . "</p>");
-
-                            //if status code entered matches in database table
-                            //mysqli_num_rows() function : to find the number of records returned from the query
-                            $numRows = mysqli_num_rows($coderesult);
-                            if ($numRows!=0 )
+                            if ($validDate==true)
                             {
-                                //display error message - include home page and post status page links and end script
-                                die	("<p>The status code entered exists in the database! Please try again</p>
-                                <div class=\"footer\"> <br><br>
-                                <a href=\"index.html\"><button type=\"button\">Return to Home Page</button></a>
-                                <a href=\"poststatusform.php\"><button type=\"button\">Post a New Status</button></a>
-                                </div>");
+                                //SQL command to check status code must be unique, ensure no duplicates in database found
+                                $sql_code = "SELECT * FROM $db_table WHERE statusCode = '$code' ";
+                                $coderesult = @mysqli_query($db_connect, $sql_code)
+                                or die("<p>Failed to execute query for status code.</p>"
+                                . "  <p>Error code " . mysqli_errno($db_connect)
+                                . ": " . mysqli_error($db_connect) . "</p>");
+
+                                //if status code entered matches in database table
+                                //mysqli_num_rows() function : to find the number of records returned from the query
+                                $numRows = mysqli_num_rows($coderesult);
+                                if ($numRows!=0 )
+                                {
+                                    //display error message - include home page and post status page links and end script
+                                    die	("<p>The status code entered exists in the database! Please try again</p>
+                                    <div class=\"footer\"> <br><br>
+                                    <a href=\"index.html\"><button type=\"button\">Return to Home Page</button></a>
+                                    <a href=\"poststatusform.php\"><button type=\"button\">Post a New Status</button></a>
+                                    </div>");
+                                 }
+
+                                //if more than 1 permission type is checked, save all of them to the same single "permission" column in status table
+                                $chck="";  
+                                foreach($permission as $check_p)  
+                                {  
+                                    //add space after each permission
+                                    $chck .= $check_p." ";  
+                                }  
+                        
+                                //save all the valid input fields to database
+                                //SQL command to add all the data into the status table
+                                $sql_add = "INSERT into $db_table"
+                                ."(statusCode, statusDesc, share, datePosted, permissionType)"
+                                . "VALUES"
+                                ."('$code','$desc','$share', '$date_db', '$chck')";
+
+                                $result_add = @mysqli_query($db_connect, $sql_add)
+                                or die("<p>Failed to execute query for insert all data.</p>"
+                                . "  <p>Error code " . mysqli_errno($db_connect)
+                                . ": " . mysqli_error($db_connect) . "</p>");
+
+                                //display confirmation message
+                                echo "<p>Status post data has been successfully saved!<p>";
                             }
-                        
-                            //if more than 1 permission type is checked, save all of them to the same single "permission" column in status table
-                            $chck="";  
-                            foreach($permission as $check_p)  
-                            {  
-                                $chck .= $check_p." ";  
-                            }  
-                        
-                            //save all the valid input fields to database
-                            //SQL command to add all the data into the status table
-                            $sql_add = "INSERT into $db_table"
-                            ."(statusCode, statusDesc, share, datePosted, permissionType)"
-                            . "VALUES"
-                            ."('$code','$desc','$share', '$date_db', '$chck')";
-
-                            $result_add = @mysqli_query($db_connect, $sql_add)
-                            or die("<p>Failed to execute query for insert data.</p>"
-                            . "  <p>Error code " . mysqli_errno($db_connect)
-                            . ": " . mysqli_error($db_connect) . "</p>");
-
-                            //display confirmation message
-                            echo "<p>Status post data has been successfully saved!<p>";
+                            else //invalid date input
+                            {
+                                echo "<p>The date entered is invalid. Please try again</p>";
+                            }
                         }
-                        else //invalid date input
+                        else //display error message for empty date field
                         {
-                            echo "<p>The date entered is invalid. Please try again</p>";
+                            echo "<p>Date field cannot be empty! Please choose the date and submit again.</p>";
                         }
                     }
-                    else //display error message for empty date field
+                    else //display error message for invalid status code and status data
                     {
-                        echo "<p>Date field cannot be empty! Please choose the date and submit again.</p>";
+                        echo "<p>Status code and Status must follow the format instructions. <br>
+                        Status Code: Starts with “S”, followed by 4 number (5 characters long) <br>
+                        Status: Can only contain alphanumeric characters (including spaces, comma, period (full stop), exclamation point and question mark. <br>
+                        Please try again.</p>";
                     }
                 }
-                else //display error message for invalid status code and status data
+                else //display error message for empty fields of status code and status
                 {
-                    echo "<p>Status code and Status must follow the format instructions. <br>
-                    Status Code: Starts with “S”, followed by 4 number (5 characters long) <br>
-                    Status: Can only contain alphanumeric characters (including spaces, comma, period (full stop), exclamation point and question mark. <br>
-                    Please try again.</p>";
+                    echo "<p>Status code and Status cannot be empty! Please fill in the fields and submit again.</p>";
                 }
-            }
-            else //display error message for empty fields of status code and status
-            {
-                echo "<p>Status code and Status cannot be empty! Please fill in the fields and submit again.</p>";
-            }
             }
             else //display error message for incorrect form request method used
             {

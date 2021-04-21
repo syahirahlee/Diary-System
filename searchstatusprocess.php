@@ -42,7 +42,7 @@ appropriate HTML output according to the user’s search request. -->
 
             //check if database "status" table exists, and create the table if not
             $db_table = "status";		
-			$sql_tbl = "SELECT * FROM $db_table";		
+			$sql_tbl = "SELECT statusCode FROM $db_table";		
 			$query_tblresult = @mysqli_query($db_connect, $sql_tbl);
             if (!$query_tblresult)
             {
@@ -68,6 +68,7 @@ appropriate HTML output according to the user’s search request. -->
 
                     //SQL command to search all status information records, to find any matched record in the status table
                     $sql_search = "SELECT * FROM $db_table WHERE statusDesc LIKE '%$searchstring%' ";
+                    //store result of search into result pointer
                     $result_search = @mysqli_query($db_connect, $sql_search)
                     or die("<p>Failed to execute search query.</p>"
                     . "  <p>Error code " . mysqli_errno($db_connect)
@@ -97,6 +98,8 @@ appropriate HTML output according to the user’s search request. -->
                             $rows  =  mysqli_fetch_row($result_search);
                         }
                         echo "</table>";
+                        // frees up the memory, after using the search result pointer
+			            mysqli_free_result($result_search);
 
                     }
                     else //when results found 0 matches in database for the searched keyword

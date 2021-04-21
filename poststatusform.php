@@ -67,7 +67,7 @@
             <div class="field">
                 <!--fetch current date-->
                 <input type="date" id="date" name="Date" value="<?php echo date("Y-m-d");?>"required> 
-                <!--mysql only take date format as Y-m-d, html side displays d/m/y format-->
+                <!--since mysql only take date format as Y-m-d, html side displays d/m/y format-->
             </div>
         </div>
         <div class="row">
